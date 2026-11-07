@@ -17,6 +17,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Ambient Liquid Refraction Mesh Layer (Slow floating orbs) -->
+  <div class="liquid-ambient-mesh">
+    <div class="liquid-orb orb-1"></div>
+    <div class="liquid-orb orb-2"></div>
+    <div class="liquid-orb orb-3"></div>
+    <div class="liquid-orb orb-4"></div>
+  </div>
+
   <div class="app-container">
 
     <!-- ====================================================================
@@ -24,6 +32,13 @@
          ==================================================================== -->
     <header class="top-navbar">
       <div class="nav-left">
+        <!-- macOS Window Dots (Liquid Glass Window Header) -->
+        <div class="macos-window-dots">
+          <span class="macos-dot dot-close" title="Close"></span>
+          <span class="macos-dot dot-minimize" title="Minimize"></span>
+          <span class="macos-dot dot-zoom" title="Zoom"></span>
+        </div>
+
         <!-- Brand Logo & Identity -->
         <a href="#" class="brand-logo-container">
           <div class="logo-icon-box">
@@ -51,6 +66,18 @@
 
       <!-- Right Action Controls -->
       <div class="nav-right">
+        <!-- Easy-to-See Liquid Glass Theme Switcher -->
+        <div class="theme-switch-container" id="themeSwitch" title="Toggle Light / Dark Liquid Glass Theme">
+          <button class="theme-switch-btn active" id="themeDarkBtn" data-theme-val="dark">
+            <i data-lucide="moon" style="width: 13px; height: 13px;"></i>
+            <span>Dark</span>
+          </button>
+          <button class="theme-switch-btn" id="themeLightBtn" data-theme-val="light">
+            <i data-lucide="sun" style="width: 13px; height: 13px;"></i>
+            <span>Light</span>
+          </button>
+        </div>
+
         <!-- Live AI Status Badge -->
         <div class="status-badge">
           <span class="status-pulse-dot"></span>
@@ -70,7 +97,7 @@
         <div class="notifications-flyout" id="notificationsFlyout">
           <div class="flyout-header">
             <span>Alerts & Signals</span>
-            <span style="font-size: 10px; color: var(--color-emerald); background: rgba(25,217,160,0.15); padding: 2px 7px; border-radius: 9999px;">
+            <span style="font-size: 10px; color: var(--color-primary); background: rgba(25,217,160,0.15); padding: 2px 7px; border-radius: 9999px;">
               3 new
             </span>
           </div>
@@ -78,17 +105,17 @@
             <div class="flyout-item">
               <div style="font-weight: 600; color: #FFF;">Competitor B launched pricing change</div>
               <div style="font-size: 10.5px; color: var(--color-gray); margin-top: 2px;">3 threads detected on Reddit & HackerNews</div>
-              <div style="font-size: 9.5px; color: var(--color-emerald); margin-top: 4px;">12m ago</div>
+              <div style="font-size: 9.5px; color: var(--color-primary); margin-top: 4px;">12m ago</div>
             </div>
             <div class="flyout-item">
               <div style="font-weight: 600; color: #FFF;">Share of Voice reached target: 42%</div>
               <div style="font-size: 10.5px; color: var(--color-gray); margin-top: 2px;">+3.8% surge following latest platform release</div>
-              <div style="font-size: 9.5px; color: var(--color-emerald); margin-top: 4px;">45m ago</div>
+              <div style="font-size: 9.5px; color: var(--color-primary); margin-top: 4px;">45m ago</div>
             </div>
             <div class="flyout-item">
               <div style="font-weight: 600; color: #FFF;">TechCrunch featured BrandVision</div>
               <div style="font-size: 10.5px; color: var(--color-gray); margin-top: 2px;">High authority backlink detected with 180k reach</div>
-              <div style="font-size: 9.5px; color: var(--color-emerald); margin-top: 4px;">2h ago</div>
+              <div style="font-size: 9.5px; color: var(--color-primary); margin-top: 4px;">2h ago</div>
             </div>
           </div>
         </div>
@@ -105,7 +132,7 @@
           <div class="profile-header-info">
             <div class="profile-user-name">Stefan Vance</div>
             <div class="profile-user-email">stefan@brandvision.io</div>
-            <span style="font-size: 9.5px; color: var(--color-emerald); background: rgba(25,217,160,0.15); padding: 1px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">
+            <span style="font-size: 9.5px; color: var(--color-primary); background: rgba(25,217,160,0.15); padding: 1px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">
               Enterprise Admin
             </span>
           </div>
@@ -214,7 +241,7 @@
               <!-- Date Range Selector Dropdown -->
               <div class="custom-dropdown" id="dateRangeDropdown">
                 <button class="dropdown-trigger" id="dateRangeTrigger">
-                  <i data-lucide="calendar" style="width: 14px; height: 14px; color: var(--color-emerald);"></i>
+                  <i data-lucide="calendar" style="width: 14px; height: 14px; color: var(--color-primary);"></i>
                   <span id="dateRangeLabel">Aug 01 – Oct 31, 2023</span>
                   <i data-lucide="chevron-down" style="width: 13px; height: 13px; color: var(--color-gray);"></i>
                 </button>
@@ -287,7 +314,7 @@
                   <!-- Legend Underneath -->
                   <div class="w1-legend">
                     <div class="legend-pill">
-                      <span class="legend-dot" style="background-color: var(--color-emerald);"></span>
+                      <span class="legend-dot" style="background-color: var(--color-primary);"></span>
                       <div class="legend-info">
                         <span class="legend-name">Your Brand</span>
                         <span class="legend-val">42%</span>
@@ -336,7 +363,7 @@
                     <!-- Chart Legend in Header -->
                     <div class="chart-header-legend">
                       <div class="header-legend-item">
-                        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-emerald);"></span>
+                        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-primary);"></span>
                         <span style="color: var(--color-text-main); font-size: 11px; font-weight: 500;">Brand</span>
                       </div>
                       <div class="header-legend-item">
@@ -390,7 +417,7 @@
                     <span class="widget-title">LIVE BRAND MENTIONS FEED</span>
                   </div>
                   <div class="live-badge">
-                    <span style="width: 6px; height: 6px; border-radius: 50%; background-color: var(--color-emerald); box-shadow: 0 0 6px var(--color-emerald); display: inline-block;"></span>
+                    <span style="width: 6px; height: 6px; border-radius: 50%; background-color: var(--color-primary); box-shadow: 0 0 6px var(--color-primary); display: inline-block;"></span>
                     <span>LIVE</span>
                   </div>
                 </div>
@@ -414,7 +441,7 @@
                   <div>
                     <span id="feedCountText">6 entries captured</span>
                     <span style="color: var(--border-card);"> • </span>
-                    <span style="color: var(--color-emerald); font-weight: 600;">Latency: 114ms</span>
+                    <span style="color: var(--color-primary); font-weight: 600;">Latency: 114ms</span>
                   </div>
                   <div class="feed-filter-btns">
                     <button class="feed-filter-btn active" data-sent="all">All</button>
@@ -447,7 +474,7 @@
                   <!-- Legend Underneath -->
                   <div class="w4-legend" id="sentimentLegend">
                     <button class="w4-legend-item active" data-series="0">
-                      <span style="width: 7px; height: 7px; border-radius: 50%; background-color: var(--color-emerald);"></span>
+                      <span style="width: 7px; height: 7px; border-radius: 50%; background-color: var(--color-primary);"></span>
                       <span>Positive</span>
                     </button>
                     <button class="w4-legend-item active" data-series="1">
@@ -477,7 +504,7 @@
                     <span class="widget-title">TOP COMPETING TOPICS</span>
                     <span class="widget-subtitle">(Distribution across core themes)</span>
                   </div>
-                  <span style="font-size: 10px; color: var(--color-emerald); background: rgba(25,217,160,0.12); padding: 2px 7px; border-radius: 9999px; font-weight: 600;">
+                  <span style="font-size: 10px; color: var(--color-primary); background: rgba(25,217,160,0.12); padding: 2px 7px; border-radius: 9999px; font-weight: 600;">
                     High Intent
                   </span>
                 </div>
@@ -491,10 +518,10 @@
                         <span class="topic-name">
                           <span class="topic-hash">#</span> Cloud Scaling
                         </span>
-                        <span class="topic-pct" style="color: var(--color-emerald);">42%</span>
+                        <span class="topic-pct" style="color: var(--color-primary);">42%</span>
                       </div>
                       <div class="topic-track">
-                        <div class="topic-fill" style="width: 84%; background: linear-gradient(90deg, #10936C, var(--color-emerald)); box-shadow: 0 0 10px rgba(25,217,160,0.3);"></div>
+                        <div class="topic-fill" style="width: 84%; background: linear-gradient(90deg, #10936C, var(--color-primary)); box-shadow: 0 0 10px rgba(25,217,160,0.3);"></div>
                       </div>
                     </div>
 
@@ -504,10 +531,10 @@
                         <span class="topic-name">
                           <span class="topic-hash">#</span> Security
                         </span>
-                        <span class="topic-pct" style="color: var(--color-emerald);">21%</span>
+                        <span class="topic-pct" style="color: var(--color-primary);">21%</span>
                       </div>
                       <div class="topic-track">
-                        <div class="topic-fill" style="width: 42%; background: linear-gradient(90deg, #0D9488, var(--color-emerald)); box-shadow: 0 0 8px rgba(25,217,160,0.25);"></div>
+                        <div class="topic-fill" style="width: 42%; background: linear-gradient(90deg, #0D9488, var(--color-primary)); box-shadow: 0 0 8px rgba(25,217,160,0.25);"></div>
                       </div>
                     </div>
 
@@ -560,7 +587,7 @@
                     <span class="widget-title">COMPETITOR KEY METRICS</span>
                     <span class="widget-subtitle">(30-Day Velocity)</span>
                   </div>
-                  <span style="font-size: 10px; color: var(--color-emerald); background: rgba(25,217,160,0.12); padding: 2px 7px; border-radius: 9999px; font-weight: 600;">
+                  <span style="font-size: 10px; color: var(--color-primary); background: rgba(25,217,160,0.12); padding: 2px 7px; border-radius: 9999px; font-weight: 600;">
                     Verified
                   </span>
                 </div>
@@ -615,7 +642,7 @@
 
                   <!-- Footer note -->
                   <div class="metric-footer">
-                    <i data-lucide="zap" style="width: 13px; height: 13px; color: var(--color-emerald);"></i>
+                    <i data-lucide="zap" style="width: 13px; height: 13px; color: var(--color-primary);"></i>
                     <span>Outperforming industry benchmark by <b>+11.4%</b></span>
                   </div>
                 </div>
@@ -655,9 +682,9 @@
                 </div>
               </div>
               <div class="metric-box" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px; border-color: rgba(25,217,160,0.4);">
-                <span style="font-size: 11px; color: var(--color-emerald); font-weight: 700;">MARKET LEADER</span>
-                <span style="font-size: 18px; font-weight: 700; color: var(--color-emerald);">BrandVision</span>
-                <span style="font-size: 13px; font-weight: 600; color: var(--color-emerald);">42% Share of Voice</span>
+                <span style="font-size: 11px; color: var(--color-primary); font-weight: 700;">MARKET LEADER</span>
+                <span style="font-size: 18px; font-weight: 700; color: var(--color-primary);">BrandVision</span>
+                <span style="font-size: 13px; font-weight: 600; color: var(--color-primary);">42% Share of Voice</span>
                 <div style="font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 6px;">
                   • Strength: AI-native causal analysis &amp; instant competitor benchmarking<br/>
                   • Growth: +3.8% MoM market share expansion<br/>
@@ -694,21 +721,21 @@
                   <div style="font-size: 13px; font-weight: 700; color: #FFF;">Competitor Negative Sentiment Surge &gt; 25%</div>
                   <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Triggers instant Slack/PagerDuty notification when competitor negative sentiment surges.</div>
                 </div>
-                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-emerald); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-primary); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
               </div>
               <div class="metric-box" style="padding: 14px;">
                 <div>
                   <div style="font-size: 13px; font-weight: 700; color: #FFF;">High Authority Mention (Domain Authority &gt; 80)</div>
                   <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Alerts executive team when Tier-1 media (TechCrunch, Forbes, Bloomberg) publishes a mention.</div>
                 </div>
-                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-emerald); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-primary); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
               </div>
               <div class="metric-box" style="padding: 14px;">
                 <div>
                   <div style="font-size: 13px; font-weight: 700; color: #FFF;">Share of Voice Milestone Crossed</div>
                   <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Notify when BrandVision exceeds 40% threshold in monthly telemetry.</div>
                 </div>
-                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-emerald); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-primary); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
               </div>
             </div>
           </div>
@@ -725,7 +752,7 @@
               <div class="metric-box" style="flex-direction: column; align-items: flex-start; padding: 18px; gap: 8px;">
                 <div style="font-size: 13.5px; font-weight: 700; color: #FFF;">Q3 2023 Executive Observability Briefing</div>
                 <div style="font-size: 11.5px; color: var(--color-gray);">Published Nov 01, 2023 • PDF &amp; Raw CSV • 14 Pages</div>
-                <button class="dropdown-trigger" style="margin-top: 10px; color: var(--color-emerald); border-color: rgba(25,217,160,0.3);">
+                <button class="dropdown-trigger" style="margin-top: 10px; color: var(--color-primary); border-color: rgba(25,217,160,0.3);">
                   <i data-lucide="download" style="width: 14px; height: 14px;"></i>
                   <span>Download Report (PDF)</span>
                 </button>
@@ -733,7 +760,7 @@
               <div class="metric-box" style="flex-direction: column; align-items: flex-start; padding: 18px; gap: 8px;">
                 <div style="font-size: 13.5px; font-weight: 700; color: #FFF;">Weekly Competitor Momentum Digest</div>
                 <div style="font-size: 11.5px; color: var(--color-gray);">Published Today at 08:00 AM • Automated AI Synthesis</div>
-                <button class="dropdown-trigger" style="margin-top: 10px; color: var(--color-emerald); border-color: rgba(25,217,160,0.3);">
+                <button class="dropdown-trigger" style="margin-top: 10px; color: var(--color-primary); border-color: rgba(25,217,160,0.3);">
                   <i data-lucide="download" style="width: 14px; height: 14px;"></i>
                   <span>Download Digest (CSV)</span>
                 </button>
@@ -743,6 +770,66 @@
         </div>
 
       </main>
+    </div>
+
+    <!-- ====================================================================
+         MENTION DETAIL MODAL (Liquid Glass Inspection)
+         ==================================================================== -->
+    <div class="modal-overlay" id="mentionModalOverlay">
+      <div class="liquid-modal" id="mentionModal">
+        <div class="modal-header">
+          <div class="flex-align-center" style="gap: 10px;">
+            <div class="modal-source-badge" id="modalSourceBadge">𝕏 Twitter</div>
+            <span class="modal-time-badge" id="modalTimeBadge">2m ago</span>
+          </div>
+          <button class="icon-btn" id="closeModalBtn" style="border: none; padding: 4px;" title="Close">
+            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <!-- Author Info -->
+          <div class="modal-author-row">
+            <div class="modal-avatar" id="modalAvatar">DV</div>
+            <div>
+              <div class="modal-author-name" id="modalAuthorName">@devops_ninja</div>
+              <div class="modal-author-reach" id="modalAuthorReach">Audience Reach: 14.2k followers • Verified Engineer</div>
+            </div>
+          </div>
+
+          <!-- Post Content -->
+          <div class="modal-quote-box">
+            <p id="modalQuoteText">"Switched our cluster observability stack to BrandVision. The telemetry alerts caught a memory spike 20m before Datadog!"</p>
+          </div>
+
+          <!-- AI Observability Insights -->
+          <div class="modal-ai-insights">
+            <div class="insight-row">
+              <span class="insight-label">NLP Sentiment</span>
+              <span class="insight-val" id="modalSentimentVal" style="color: var(--color-primary);">96.8% Positive Confidence</span>
+            </div>
+            <div class="insight-row">
+              <span class="insight-label">Competitor Impact</span>
+              <span class="insight-val" id="modalCompetitorVal" style="color: var(--color-orange);">Direct displacement of Datadog</span>
+            </div>
+            <div class="insight-row">
+              <span class="insight-label">Detected Category</span>
+              <span class="insight-val">Cloud Scaling &amp; APM Memory Leak</span>
+            </div>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="modal-actions-row">
+            <button class="dropdown-trigger" style="background: rgba(25,217,160,0.18); border-color: rgba(25,217,160,0.4); color: #FFF;">
+              <i data-lucide="share-2" style="width: 14px; height: 14px; color: var(--color-primary);"></i>
+              <span>Export Signal to Slack</span>
+            </button>
+            <button class="dropdown-trigger" id="dismissModalBtn">
+              <span>Dismiss</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>

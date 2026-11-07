@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const shareOfVoiceData = {
     labels: ['Your Brand', 'Competitor A', 'Competitor B', 'Others'],
     values: [42, 28, 18, 12],
-    colors: ['#19D9A0', '#2185F5', '#F59E35', '#8995A7']
+    colors: ['#6366F1', '#0284C7', '#F59E0B', '#94A3B8']
   };
 
   // Widget 2: Detection Trends Datasets
@@ -133,8 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         label: 'Positive',
         data: [35, 62, 84, 92],
-        borderColor: '#19D9A0',
-        backgroundColor: 'rgba(25, 217, 160, 0.08)',
+        borderColor: '#6366F1',
+        backgroundColor: 'rgba(99, 102, 241, 0.12)',
         fill: true,
         tension: 0.35,
         borderWidth: 2.5
@@ -207,12 +207,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Create subtle bar gradients
     const gradBrand = ctxVoice.createLinearGradient(0, 0, 0, 220);
-    gradBrand.addColorStop(0, '#19D9A0');
-    gradBrand.addColorStop(1, '#0B7354');
+    gradBrand.addColorStop(0, '#6366F1');
+    gradBrand.addColorStop(1, '#4338CA');
 
     const gradCompA = ctxVoice.createLinearGradient(0, 0, 0, 220);
-    gradCompA.addColorStop(0, '#2185F5');
-    gradCompA.addColorStop(1, '#114C91');
+    gradCompA.addColorStop(0, '#0284C7');
+    gradCompA.addColorStop(1, '#0369A1');
 
     const gradCompB = ctxVoice.createLinearGradient(0, 0, 0, 220);
     gradCompB.addColorStop(0, '#F59E35');
@@ -242,12 +242,14 @@ document.addEventListener('DOMContentLoaded', () => {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#0D1728',
-            borderColor: '#26364B',
+            backgroundColor: 'rgba(13, 23, 40, 0.88)',
+            borderColor: 'rgba(255, 255, 255, 0.18)',
             borderWidth: 1,
+            cornerRadius: 10,
             titleColor: '#F3F6FA',
             bodyColor: '#A0AEC0',
-            padding: 8,
+            padding: 10,
+            boxPadding: 4,
             callbacks: {
               label: (context) => `Share of Voice: ${context.parsed.y}%`
             }
@@ -260,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
               color: '#8995A7',
               font: { size: 10 }
             },
-            border: { color: '#26364B' }
+            border: { color: 'rgba(255, 255, 255, 0.08)' }
           },
           y: {
             min: 0,
@@ -272,10 +274,10 @@ document.addEventListener('DOMContentLoaded', () => {
               font: { size: 10 }
             },
             grid: {
-              color: '#1E2D42',
+              color: 'rgba(255, 255, 255, 0.04)',
               drawBorder: false
             },
-            border: { color: '#26364B' }
+            border: { color: 'rgba(255, 255, 255, 0.08)' }
           }
         }
       },
@@ -291,12 +293,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (ctxTrends) {
     const gradBrandArea = ctxTrends.createLinearGradient(0, 0, 0, 220);
-    gradBrandArea.addColorStop(0, 'rgba(25, 217, 160, 0.35)');
-    gradBrandArea.addColorStop(1, 'rgba(25, 217, 160, 0.0)');
+    gradBrandArea.addColorStop(0, 'rgba(99, 102, 241, 0.4)');
+    gradBrandArea.addColorStop(1, 'rgba(99, 102, 241, 0.0)');
 
     const gradCompArea = ctxTrends.createLinearGradient(0, 0, 0, 220);
-    gradCompArea.addColorStop(0, 'rgba(245, 158, 53, 0.28)');
-    gradCompArea.addColorStop(1, 'rgba(245, 158, 53, 0.0)');
+    gradCompArea.addColorStop(0, 'rgba(245, 158, 11, 0.28)');
+    gradCompArea.addColorStop(1, 'rgba(245, 158, 11, 0.0)');
 
     const initialData = trendDatasets['30d'];
 
@@ -308,29 +310,29 @@ document.addEventListener('DOMContentLoaded', () => {
           {
             label: 'Competitor Mentions',
             data: initialData.competitor,
-            borderColor: '#F59E35',
+            borderColor: '#F59E0B',
             backgroundColor: gradCompArea,
             fill: true,
             tension: 0.4,
             borderWidth: 2,
             pointRadius: 0,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: '#0D1728',
-            pointHoverBorderColor: '#F59E35',
+            pointHoverBackgroundColor: 'var(--glass-surface)',
+            pointHoverBorderColor: '#F59E0B',
             pointHoverBorderWidth: 2
           },
           {
             label: 'Brand Mentions',
             data: initialData.brand,
-            borderColor: '#19D9A0',
+            borderColor: '#6366F1',
             backgroundColor: gradBrandArea,
             fill: true,
             tension: 0.4,
             borderWidth: 2.5,
             pointRadius: 0,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: '#0D1728',
-            pointHoverBorderColor: '#19D9A0',
+            pointHoverBackgroundColor: 'var(--glass-surface)',
+            pointHoverBorderColor: '#6366F1',
             pointHoverBorderWidth: 2
           }
         ]
@@ -345,9 +347,10 @@ document.addEventListener('DOMContentLoaded', () => {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#0D1728',
-            borderColor: '#26364B',
+            backgroundColor: 'rgba(13, 23, 40, 0.9)',
+            borderColor: 'rgba(255, 255, 255, 0.18)',
             borderWidth: 1,
+            cornerRadius: 10,
             titleColor: '#F3F6FA',
             bodyColor: '#A0AEC0',
             padding: 10,
@@ -360,14 +363,14 @@ document.addEventListener('DOMContentLoaded', () => {
         scales: {
           x: {
             grid: {
-              color: 'rgba(30, 45, 66, 0.4)',
+              color: 'rgba(255, 255, 255, 0.03)',
               drawBorder: false
             },
             ticks: {
               color: '#8995A7',
               font: { size: 10 }
             },
-            border: { color: '#26364B' }
+            border: { color: 'rgba(255, 255, 255, 0.08)' }
           },
           y: {
             min: 0,
@@ -379,10 +382,10 @@ document.addEventListener('DOMContentLoaded', () => {
               font: { size: 10 }
             },
             grid: {
-              color: '#1E2D42',
+              color: 'rgba(255, 255, 255, 0.04)',
               drawBorder: false
             },
-            border: { color: '#26364B' }
+            border: { color: 'rgba(255, 255, 255, 0.08)' }
           }
         }
       }
@@ -410,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Sentiment icon
       let sentimentSvg = '';
       if (mention.sentiment === 'positive') {
-        sentimentSvg = `<span style="color: var(--color-emerald);"><i data-lucide="smile" style="width: 14px; height: 14px;"></i></span>`;
+        sentimentSvg = `<span style="color: var(--color-primary);"><i data-lucide="smile" style="width: 14px; height: 14px;"></i></span>`;
       } else if (mention.sentiment === 'negative') {
         sentimentSvg = `<span style="color: var(--color-orange);"><i data-lucide="frown" style="width: 14px; height: 14px;"></i></span>`;
       } else {
@@ -438,6 +441,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="target-pill ${mention.targetClass}">${mention.target}</span>
         </div>
       `;
+
+      // Click to open detailed Liquid Glass modal
+      row.addEventListener('click', () => {
+        openMentionModal(mention);
+      });
 
       feedListElem.appendChild(row);
     });
@@ -481,12 +489,13 @@ document.addEventListener('DOMContentLoaded', () => {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#0D1728',
-            borderColor: '#26364B',
+            backgroundColor: 'rgba(13, 23, 40, 0.9)',
+            borderColor: 'rgba(255, 255, 255, 0.18)',
             borderWidth: 1,
+            cornerRadius: 10,
             titleColor: '#F3F6FA',
             bodyColor: '#A0AEC0',
-            padding: 8,
+            padding: 10,
             callbacks: {
               label: (item) => ` ${item.dataset.label}: ${item.parsed.y > 0 ? '+' : ''}${item.parsed.y}`
             }
@@ -495,14 +504,14 @@ document.addEventListener('DOMContentLoaded', () => {
         scales: {
           x: {
             grid: {
-              color: 'rgba(30, 45, 66, 0.4)',
+              color: 'rgba(255, 255, 255, 0.03)',
               drawBorder: false
             },
             ticks: {
               color: '#8995A7',
               font: { size: 10 }
             },
-            border: { color: '#26364B' }
+            border: { color: 'rgba(255, 255, 255, 0.08)' }
           },
           y: {
             min: -50,
@@ -514,10 +523,10 @@ document.addEventListener('DOMContentLoaded', () => {
               font: { size: 9 }
             },
             grid: {
-              color: '#1E2D42',
+              color: 'rgba(255, 255, 255, 0.04)',
               drawBorder: false
             },
-            border: { color: '#26364B' }
+            border: { color: 'rgba(255, 255, 255, 0.08)' }
           }
         }
       }
@@ -772,4 +781,180 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Generating executive PDF & CSV summary report for BRANDVISION...');
     });
   }
+
+  // ==========================================================================
+  // 9. Dynamic Cursor-Following Specular Sheen (Liquid Glass Physics)
+  // ==========================================================================
+  const cards = document.querySelectorAll('.widget-card');
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  // ==========================================================================
+  // 10. Mention Detail Modal Handlers
+  // ==========================================================================
+  const modalOverlay = document.getElementById('mentionModalOverlay');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const dismissModalBtn = document.getElementById('dismissModalBtn');
+
+  function openMentionModal(mention) {
+    if (!modalOverlay) return;
+
+    document.getElementById('modalSourceBadge').textContent = `${mention.sourceIcon} ${mention.source}`;
+    document.getElementById('modalTimeBadge').textContent = `${mention.time} (${mention.timeAgo})`;
+    document.getElementById('modalQuoteText').textContent = `"${mention.text}"`;
+    document.getElementById('modalAuthorName').textContent = mention.source === 'Twitter' ? '@cloud_devops' : (mention.source === 'Reddit' ? 'u/latency_ninja' : 'Tech Analyst');
+    
+    const sentElem = document.getElementById('modalSentimentVal');
+    if (mention.sentiment === 'positive') {
+      sentElem.textContent = '96.8% Positive Confidence';
+      sentElem.style.color = 'var(--color-emerald)';
+    } else if (mention.sentiment === 'negative') {
+      sentElem.textContent = '84.2% Negative Friction';
+      sentElem.style.color = 'var(--color-orange)';
+    } else {
+      sentElem.textContent = '91.0% Neutral Discussion';
+      sentElem.style.color = 'var(--color-yellow)';
+    }
+
+    document.getElementById('modalCompetitorVal').textContent = mention.target === 'BrandVision' ? 'Direct brand advocacy' : `Comparative discussion against ${mention.target}`;
+
+    modalOverlay.classList.add('show');
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  }
+
+  function closeMentionModal() {
+    modalOverlay?.classList.remove('show');
+  }
+
+  closeModalBtn?.addEventListener('click', closeMentionModal);
+  dismissModalBtn?.addEventListener('click', closeMentionModal);
+  modalOverlay?.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeMentionModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMentionModal();
+  });
+
+  // ==========================================================================
+  // 11. Real-Time Live Feed Ingestion Simulation (Every 18 seconds)
+  // ==========================================================================
+  const simulatedIncomingMentions = [
+    {
+      time: 'Just now',
+      timeAgo: '1s ago',
+      source: 'Twitter',
+      sourceIcon: '𝕏',
+      sourceColor: '#2185F5',
+      sentiment: 'positive',
+      text: 'Benchmark complete: BrandVision CPU overhead is under 0.8% across 40 Kubernetes nodes. Impressive telemetry compression!',
+      target: 'BrandVision',
+      targetClass: 'emerald'
+    },
+    {
+      time: 'Just now',
+      timeAgo: '1s ago',
+      source: 'Reddit',
+      sourceIcon: 'RD',
+      sourceColor: '#FF4500',
+      sentiment: 'positive',
+      text: 'Anyone else migrating from Dynatrace to BrandVision? The automatic causality graphs saved us ~4 hours on a P1 outage today.',
+      target: 'Dynatrace',
+      targetClass: 'orange'
+    },
+    {
+      time: 'Just now',
+      timeAgo: '1s ago',
+      source: 'News',
+      sourceIcon: 'HN',
+      sourceColor: '#FF6600',
+      sentiment: 'neutral',
+      text: 'Show HN: BrandVision - Next-generation open telemetry collector with built-in competitor sentiment tracking.',
+      target: 'BrandVision',
+      targetClass: 'emerald'
+    }
+  ];
+
+  let simIndex = 0;
+  setInterval(() => {
+    if (state.activeTab !== 'overview' && state.activeTab !== 'mentions') return;
+    const item = simulatedIncomingMentions[simIndex % simulatedIncomingMentions.length];
+    simIndex++;
+
+    liveMentions.unshift({
+      ...item,
+      id: 'm_' + Date.now()
+    });
+
+    if (liveMentions.length > 8) liveMentions.pop();
+    renderFeed(state.feedFilter);
+
+    // Pulse feed counter
+    const feedCountText = document.getElementById('feedCountText');
+    if (feedCountText) {
+      feedCountText.textContent = `${liveMentions.length} entries captured`;
+      feedCountText.style.color = 'var(--color-primary)';
+      setTimeout(() => {
+        feedCountText.style.color = 'var(--color-gray)';
+      }, 1200);
+    }
+  }, 18000);
+
+  // ==========================================================================
+  // 12. Liquid Glass Theme Switcher (Dark 🌙 / Light ☀️)
+  // ==========================================================================
+  const themeDarkBtn = document.getElementById('themeDarkBtn');
+  const themeLightBtn = document.getElementById('themeLightBtn');
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('bv_liquid_theme', theme);
+
+    if (theme === 'light') {
+      themeLightBtn?.classList.add('active');
+      themeDarkBtn?.classList.remove('active');
+      Chart.defaults.color = '#475569';
+    } else {
+      themeDarkBtn?.classList.add('active');
+      themeLightBtn?.classList.remove('active');
+      Chart.defaults.color = '#94A3B8';
+    }
+
+    // Refresh charts with updated axis colors
+    const isLight = theme === 'light';
+    const gridColor = isLight ? 'rgba(0, 0, 0, 0.06)' : 'rgba(255, 255, 255, 0.04)';
+    const textColor = isLight ? '#475569' : '#94A3B8';
+    const borderColor = isLight ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.08)';
+
+    [shareOfVoiceChart, detectionChart, sentimentChart].forEach((chart) => {
+      if (!chart) return;
+      if (chart.options?.scales?.x) {
+        chart.options.scales.x.ticks.color = textColor;
+        chart.options.scales.x.border.color = borderColor;
+        if (chart.options.scales.x.grid) chart.options.scales.x.grid.color = gridColor;
+      }
+      if (chart.options?.scales?.y) {
+        chart.options.scales.y.ticks.color = textColor;
+        chart.options.scales.y.border.color = borderColor;
+        if (chart.options.scales.y.grid) chart.options.scales.y.grid.color = gridColor;
+      }
+      chart.update();
+    });
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  }
+
+  themeDarkBtn?.addEventListener('click', () => applyTheme('dark'));
+  themeLightBtn?.addEventListener('click', () => applyTheme('light'));
+
+  // Init theme from storage or default to dark
+  const initialTheme = localStorage.getItem('bv_liquid_theme') || 'dark';
+  applyTheme(initialTheme);
 });
