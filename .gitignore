@@ -1,6 +1,16 @@
+# Frontend Dependencies & Build
 node_modules/
 dist/
 .env
 .env.local
 .vscode/
 *.log
+
+# Backend / Python
+backend/venv/
+backend/.env
+backend/*.db
+backend/*.sqlite3
+__pycache__/
+*.py[cod]
+.pytest_cache/
