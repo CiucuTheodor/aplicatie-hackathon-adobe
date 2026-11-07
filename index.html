@@ -1,29 +1,768 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Hackathon Project</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRANDVISION – SaaS Observability</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="app-container">
 
-    <header>
-        <h1>My Hackathon Project</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+    <!-- ====================================================================
+         TOP NAVIGATION BAR (~58px)
+         ==================================================================== -->
+    <header class="top-navbar">
+      <div class="nav-left">
+        <!-- Brand Logo & Identity -->
+        <a href="#" class="brand-logo-container">
+          <div class="logo-icon-box">
+            <div class="logo-inner">
+              <i data-lucide="radio" style="width: 17px; height: 17px;"></i>
+            </div>
+          </div>
+          <div class="brand-text-group">
+            <div class="brand-title">
+              <span class="brand-part">BRAND</span><span class="vision-part">VISION</span>
+            </div>
+            <span class="brand-subtitle">SaaS Observability</span>
+          </div>
+        </a>
+
+        <!-- Main Navigation Tabs -->
+        <nav class="nav-tabs" id="navTabsList">
+          <button class="nav-tab-btn active" data-tab="overview">Overview</button>
+          <button class="nav-tab-btn" data-tab="competitors">Competitors</button>
+          <button class="nav-tab-btn" data-tab="mentions">Brand Mentions</button>
+          <button class="nav-tab-btn" data-tab="alerts">Alerts</button>
+          <button class="nav-tab-btn" data-tab="reports">Reports</button>
         </nav>
+      </div>
+
+      <!-- Right Action Controls -->
+      <div class="nav-right">
+        <!-- Live AI Status Badge -->
+        <div class="status-badge">
+          <span class="status-pulse-dot"></span>
+          <span class="status-label">AI Engine:</span>
+          <span class="status-value">Tracking 4 Competitors</span>
+        </div>
+
+        <!-- Notification Bell -->
+        <div class="tooltip-wrap" style="position: relative;">
+          <button class="icon-btn" id="notifBellBtn" title="Alerts & Signals">
+            <i data-lucide="bell" style="width: 17px; height: 17px;"></i>
+            <span class="badge-dot" id="unreadNotifDot"></span>
+          </button>
+        </div>
+
+        <!-- Notifications Flyout -->
+        <div class="notifications-flyout" id="notificationsFlyout">
+          <div class="flyout-header">
+            <span>Alerts & Signals</span>
+            <span style="font-size: 10px; color: var(--color-emerald); background: rgba(25,217,160,0.15); padding: 2px 7px; border-radius: 9999px;">
+              3 new
+            </span>
+          </div>
+          <div class="flyout-list">
+            <div class="flyout-item">
+              <div style="font-weight: 600; color: #FFF;">Competitor B launched pricing change</div>
+              <div style="font-size: 10.5px; color: var(--color-gray); margin-top: 2px;">3 threads detected on Reddit & HackerNews</div>
+              <div style="font-size: 9.5px; color: var(--color-emerald); margin-top: 4px;">12m ago</div>
+            </div>
+            <div class="flyout-item">
+              <div style="font-weight: 600; color: #FFF;">Share of Voice reached target: 42%</div>
+              <div style="font-size: 10.5px; color: var(--color-gray); margin-top: 2px;">+3.8% surge following latest platform release</div>
+              <div style="font-size: 9.5px; color: var(--color-emerald); margin-top: 4px;">45m ago</div>
+            </div>
+            <div class="flyout-item">
+              <div style="font-weight: 600; color: #FFF;">TechCrunch featured BrandVision</div>
+              <div style="font-size: 10.5px; color: var(--color-gray); margin-top: 2px;">High authority backlink detected with 180k reach</div>
+              <div style="font-size: 9.5px; color: var(--color-emerald); margin-top: 4px;">2h ago</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Profile Dropdown Trigger -->
+        <button class="user-profile-btn" id="userProfileBtn">
+          <div class="avatar-circle">SV</div>
+          <span class="user-name-text">Stefan V.</span>
+          <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--color-gray);"></i>
+        </button>
+
+        <!-- User Profile Dropdown Menu -->
+        <div class="profile-dropdown-menu" id="profileDropdownMenu">
+          <div class="profile-header-info">
+            <div class="profile-user-name">Stefan Vance</div>
+            <div class="profile-user-email">stefan@brandvision.io</div>
+            <span style="font-size: 9.5px; color: var(--color-emerald); background: rgba(25,217,160,0.15); padding: 1px 6px; border-radius: 4px; display: inline-block; margin-top: 4px;">
+              Enterprise Admin
+            </span>
+          </div>
+          <button class="profile-menu-item">
+            <i data-lucide="user" style="width: 14px; height: 14px;"></i>
+            <span>Account Profile</span>
+          </button>
+          <button class="profile-menu-item">
+            <i data-lucide="sliders" style="width: 14px; height: 14px;"></i>
+            <span>Observability Rules</span>
+          </button>
+          <button class="profile-menu-item">
+            <i data-lucide="code" style="width: 14px; height: 14px;"></i>
+            <span>API & Webhooks</span>
+          </button>
+          <div style="border-top: 1px solid var(--border-card); margin: 4px 0;"></div>
+          <button class="profile-menu-item" style="color: var(--color-orange);">
+            <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </div>
     </header>
 
-    <main>
-        <h2>Welcome!</h2>
-        <p>This is my first website.</p>
-        <button id="myButton">Click me!</button>
-    </main>
+    <!-- ====================================================================
+         WORKSPACE: SIDEBAR + MAIN CONTENT
+         ==================================================================== -->
+    <div class="main-wrapper">
+      
+      <!-- Left Sidebar (~52px) -->
+      <aside class="sidebar">
+        <div class="sidebar-nav-group">
+          <div class="tooltip-wrap">
+            <button class="sidebar-icon-btn" data-sidebar="dashboard" title="Dashboard">
+              <i data-lucide="layout-grid" style="width: 19px; height: 19px;"></i>
+            </button>
+            <div class="tooltip-bubble">Dashboard Grid</div>
+          </div>
 
-    <script src="script.js"></script>
+          <div class="tooltip-wrap">
+            <button class="sidebar-icon-btn active" data-sidebar="analytics" title="Analytics">
+              <i data-lucide="bar-chart-2" style="width: 19px; height: 19px;"></i>
+            </button>
+            <div class="tooltip-bubble">Analytics & Observability</div>
+          </div>
+
+          <div class="tooltip-wrap">
+            <button class="sidebar-icon-btn" data-sidebar="competitors" title="Competitors">
+              <i data-lucide="users" style="width: 19px; height: 19px;"></i>
+            </button>
+            <div class="tooltip-bubble">Competitor Intelligence</div>
+          </div>
+
+          <div class="tooltip-wrap">
+            <button class="sidebar-icon-btn" data-sidebar="notifications" title="Notifications">
+              <i data-lucide="bell" style="width: 19px; height: 19px;"></i>
+            </button>
+            <div class="tooltip-bubble">Alerts & Rules</div>
+          </div>
+
+          <div class="tooltip-wrap">
+            <button class="sidebar-icon-btn" data-sidebar="settings" title="Settings">
+              <i data-lucide="settings" style="width: 19px; height: 19px;"></i>
+            </button>
+            <div class="tooltip-bubble">Settings</div>
+          </div>
+        </div>
+
+        <div class="sidebar-bottom-group">
+          <div class="tooltip-wrap">
+            <button class="sidebar-icon-btn" title="Help & Documentation">
+              <i data-lucide="help-circle" style="width: 19px; height: 19px;"></i>
+            </button>
+            <div class="tooltip-bubble">Help & Documentation</div>
+          </div>
+
+          <!-- User avatar at bottom -->
+          <div class="sidebar-user-avatar" title="Stefan V. (Online)">
+            <div class="sidebar-avatar-img">BV</div>
+            <span class="online-status-dot"></span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        
+        <!-- View 1: Overview Tab (Default Active) -->
+        <div class="tab-content-view active-view" id="view-overview">
+          
+          <!-- Overview Header -->
+          <div class="overview-header">
+            <div class="overview-title-group">
+              <h1>
+                <span>Competitor Analysis & Brand Detection over time</span>
+                <span class="ai-badge">
+                  <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i>
+                  <span>AI Synthesis Active</span>
+                </span>
+              </h1>
+              <p>Real-time telemetry, sentiment analysis, and comparative market share benchmarks.</p>
+            </div>
+
+            <!-- Header Controls -->
+            <div class="overview-controls">
+              <!-- Date Range Selector Dropdown -->
+              <div class="custom-dropdown" id="dateRangeDropdown">
+                <button class="dropdown-trigger" id="dateRangeTrigger">
+                  <i data-lucide="calendar" style="width: 14px; height: 14px; color: var(--color-emerald);"></i>
+                  <span id="dateRangeLabel">Aug 01 – Oct 31, 2023</span>
+                  <i data-lucide="chevron-down" style="width: 13px; height: 13px; color: var(--color-gray);"></i>
+                </button>
+                <div class="dropdown-menu" id="dateRangeMenu">
+                  <button class="dropdown-item active" data-val="Aug 01 – Oct 31, 2023">Aug 01 – Oct 31, 2023</button>
+                  <button class="dropdown-item" data-val="Last 30 Days">Last 30 Days</button>
+                  <button class="dropdown-item" data-val="Last 60 Days">Last 60 Days</button>
+                  <button class="dropdown-item" data-val="Last 90 Days">Last 90 Days</button>
+                  <button class="dropdown-item" data-val="Q3 2023 (Jul – Sep)">Q3 2023 (Jul – Sep)</button>
+                  <button class="dropdown-item" data-val="Year to Date">Year to Date</button>
+                </div>
+              </div>
+
+              <!-- Filter Dropdown -->
+              <div class="custom-dropdown" id="filterDropdown">
+                <button class="dropdown-trigger" id="filterTrigger">
+                  <i data-lucide="filter" style="width: 14px; height: 14px; color: var(--color-blue);"></i>
+                  <span class="prefix">Filter:</span>
+                  <span id="filterLabel">All Channels</span>
+                  <i data-lucide="chevron-down" style="width: 13px; height: 13px; color: var(--color-gray);"></i>
+                </button>
+                <div class="dropdown-menu" id="filterMenu">
+                  <button class="dropdown-item active" data-val="All Channels">All Channels</button>
+                  <button class="dropdown-item" data-val="Social Media">Social Media (X, Reddit)</button>
+                  <button class="dropdown-item" data-val="Tech News & PR">Tech News & PR</button>
+                  <button class="dropdown-item" data-val="Developer Forums">Developer Forums</button>
+                  <button class="dropdown-item" data-val="Review Portals">Review Portals (G2, Capterra)</button>
+                </div>
+              </div>
+
+              <!-- Refresh Button -->
+              <button class="icon-btn" id="refreshBtn" title="Sync Telemetry">
+                <i data-lucide="rotate-cw" id="refreshIcon" style="width: 14px; height: 14px;"></i>
+              </button>
+
+              <!-- Export Button -->
+              <button class="dropdown-trigger" id="exportBtn" title="Export Report">
+                <i data-lucide="download" style="width: 14px; height: 14px;"></i>
+                <span>Export</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ================================================================
+               DASHBOARD GRID: 28% / 44% / 28%
+               ================================================================ -->
+          <div class="dashboard-grid-container">
+
+            <!-- ================= TOP ROW (~330px) ================= -->
+            <div class="dashboard-row-top">
+
+              <!-- WIDGET 1: Competitor Share of Voice (~28% width, ~330px high) -->
+              <div class="widget-card widget-top-height">
+                <div class="widget-header">
+                  <div class="widget-title-area">
+                    <span class="widget-title">COMPETITOR SHARE OF VOICE</span>
+                    <span class="widget-subtitle">(Last 30 Days)</span>
+                  </div>
+                  <button class="icon-btn" style="border:none; padding: 2px;" title="Options">
+                    <i data-lucide="more-horizontal" style="width: 16px; height: 16px;"></i>
+                  </button>
+                </div>
+
+                <div class="widget-body">
+                  <!-- Bar Chart Canvas -->
+                  <div class="chart-container-w1">
+                    <canvas id="shareOfVoiceCanvas"></canvas>
+                  </div>
+
+                  <!-- Legend Underneath -->
+                  <div class="w1-legend">
+                    <div class="legend-pill">
+                      <span class="legend-dot" style="background-color: var(--color-emerald);"></span>
+                      <div class="legend-info">
+                        <span class="legend-name">Your Brand</span>
+                        <span class="legend-val">42%</span>
+                      </div>
+                    </div>
+
+                    <div class="legend-pill">
+                      <span class="legend-dot" style="background-color: var(--color-blue);"></span>
+                      <div class="legend-info">
+                        <span class="legend-name">Competitor A</span>
+                        <span class="legend-val">28%</span>
+                      </div>
+                    </div>
+
+                    <div class="legend-pill">
+                      <span class="legend-dot" style="background-color: var(--color-orange);"></span>
+                      <div class="legend-info">
+                        <span class="legend-name">Competitor B</span>
+                        <span class="legend-val">18%</span>
+                      </div>
+                    </div>
+
+                    <div class="legend-pill">
+                      <span class="legend-dot" style="background-color: var(--color-gray);"></span>
+                      <div class="legend-info">
+                        <span class="legend-name">Others</span>
+                        <span class="legend-val">12%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WIDGET 2: Brand Detection Trends (~44% width, ~330px high - Largest Chart) -->
+              <div class="widget-card widget-top-height">
+                <div class="widget-header">
+                  <div class="widget-title-area">
+                    <span class="widget-title">BRAND DETECTION TRENDS</span>
+                    <span class="ai-badge" style="font-size: 9.5px; padding: 1px 6px;">
+                      <i data-lucide="trending-up" style="width: 11px; height: 11px;"></i>
+                      <span>+18.4% Peak</span>
+                    </span>
+                  </div>
+
+                  <div class="w2-header-controls">
+                    <!-- Chart Legend in Header -->
+                    <div class="chart-header-legend">
+                      <div class="header-legend-item">
+                        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-emerald);"></span>
+                        <span style="color: var(--color-text-main); font-size: 11px; font-weight: 500;">Brand</span>
+                      </div>
+                      <div class="header-legend-item">
+                        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-orange);"></span>
+                        <span style="color: var(--color-text-secondary); font-size: 11px;">Competitors</span>
+                      </div>
+                    </div>
+
+                    <!-- Period Selector Dropdown (30d, 60d, 90d) -->
+                    <div class="custom-dropdown" id="periodDropdown">
+                      <button class="dropdown-trigger" id="periodTrigger" style="padding: 4px 8px; font-size: 11px;">
+                        <span id="periodLabel">30 Days</span>
+                        <i data-lucide="chevron-down" style="width: 12px; height: 12px; color: var(--color-gray);"></i>
+                      </button>
+                      <div class="dropdown-menu" id="periodMenu" style="min-width: 110px;">
+                        <button class="dropdown-item active" data-period="30d">30 Days</button>
+                        <button class="dropdown-item" data-period="60d">60 Days</button>
+                        <button class="dropdown-item" data-period="90d">90 Days</button>
+                      </div>
+                    </div>
+
+                    <!-- All Filter Dropdown -->
+                    <div class="custom-dropdown" id="allFilterDropdown">
+                      <button class="dropdown-trigger" id="allFilterTrigger" style="padding: 4px 8px; font-size: 11px;">
+                        <i data-lucide="layers" style="width: 12px; height: 12px; color: var(--color-gray);"></i>
+                        <span id="allFilterLabel">All Filter</span>
+                        <i data-lucide="chevron-down" style="width: 12px; height: 12px; color: var(--color-gray);"></i>
+                      </button>
+                      <div class="dropdown-menu" id="allFilterMenu" style="min-width: 140px;">
+                        <button class="dropdown-item active" data-allfilter="All Filter">All Filter</button>
+                        <button class="dropdown-item" data-allfilter="Direct Mentions">Direct Mentions</button>
+                        <button class="dropdown-item" data-allfilter="Contextual">Contextual Signals</button>
+                        <button class="dropdown-item" data-allfilter="Hashtag Reach">Hashtag Reach</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="widget-body" style="padding: 10px 14px;">
+                  <!-- Area Chart Canvas -->
+                  <div class="chart-container-w2">
+                    <canvas id="brandDetectionCanvas"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WIDGET 3: Live Brand Mentions Feed (~28% width, ~330px high) -->
+              <div class="widget-card widget-top-height" style="display: flex; flex-direction: column;">
+                <div class="widget-header">
+                  <div class="widget-title-area">
+                    <span class="widget-title">LIVE BRAND MENTIONS FEED</span>
+                  </div>
+                  <div class="live-badge">
+                    <span style="width: 6px; height: 6px; border-radius: 50%; background-color: var(--color-emerald); box-shadow: 0 0 6px var(--color-emerald); display: inline-block;"></span>
+                    <span>LIVE</span>
+                  </div>
+                </div>
+
+                <!-- Table-like Header -->
+                <div class="live-feed-table-header">
+                  <span>TIME</span>
+                  <span>SOURCE</span>
+                  <span style="text-align: center;">SENT</span>
+                  <span>MENTION TEXT</span>
+                  <span style="text-align: right;">TARGET</span>
+                </div>
+
+                <!-- Feed Items List -->
+                <div class="live-feed-list" id="liveFeedList">
+                  <!-- Injected via script.js -->
+                </div>
+
+                <!-- Feed Footer -->
+                <div class="live-feed-footer">
+                  <div>
+                    <span id="feedCountText">6 entries captured</span>
+                    <span style="color: var(--border-card);"> • </span>
+                    <span style="color: var(--color-emerald); font-weight: 600;">Latency: 114ms</span>
+                  </div>
+                  <div class="feed-filter-btns">
+                    <button class="feed-filter-btn active" data-sent="all">All</button>
+                    <button class="feed-filter-btn" data-sent="positive">+</button>
+                    <button class="feed-filter-btn" data-sent="negative">-</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ================= BOTTOM ROW (~250px) ================= -->
+            <div class="dashboard-row-bottom">
+
+              <!-- WIDGET 4: Sentiment Analysis Over Time (~28% width, ~250px high) -->
+              <div class="widget-card widget-bottom-height">
+                <div class="widget-header">
+                  <div class="widget-title-area">
+                    <span class="widget-title">SENTIMENT ANALYSIS OVER TIME</span>
+                    <span class="widget-subtitle">(-50..100)</span>
+                  </div>
+                </div>
+
+                <div class="widget-body" style="padding: 10px 14px;">
+                  <!-- Multi-series Line Chart Canvas -->
+                  <div class="chart-container-w4">
+                    <canvas id="sentimentAnalysisCanvas"></canvas>
+                  </div>
+
+                  <!-- Legend Underneath -->
+                  <div class="w4-legend" id="sentimentLegend">
+                    <button class="w4-legend-item active" data-series="0">
+                      <span style="width: 7px; height: 7px; border-radius: 50%; background-color: var(--color-emerald);"></span>
+                      <span>Positive</span>
+                    </button>
+                    <button class="w4-legend-item active" data-series="1">
+                      <span style="width: 7px; height: 7px; border-radius: 50%; background-color: var(--color-orange);"></span>
+                      <span>Negative</span>
+                    </button>
+                    <button class="w4-legend-item active" data-series="2">
+                      <span style="width: 7px; height: 7px; border-radius: 50%; background-color: var(--color-gray);"></span>
+                      <span>Neutral</span>
+                    </button>
+                    <button class="w4-legend-item active" data-series="3">
+                      <span style="width: 7px; height: 7px; border-radius: 50%; background-color: #E2E8F0;"></span>
+                      <span>Comp A</span>
+                    </button>
+                    <button class="w4-legend-item active" data-series="4">
+                      <span style="width: 7px; height: 7px; border-radius: 50%; background-color: var(--color-yellow);"></span>
+                      <span>Comp B</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WIDGET 5: Top Competing Topics (~44% width, ~250px high) -->
+              <div class="widget-card widget-bottom-height">
+                <div class="widget-header">
+                  <div class="widget-title-area">
+                    <span class="widget-title">TOP COMPETING TOPICS</span>
+                    <span class="widget-subtitle">(Distribution across core themes)</span>
+                  </div>
+                  <span style="font-size: 10px; color: var(--color-emerald); background: rgba(25,217,160,0.12); padding: 2px 7px; border-radius: 9999px; font-weight: 600;">
+                    High Intent
+                  </span>
+                </div>
+
+                <div class="widget-body">
+                  <!-- Horizontal Progress Bars -->
+                  <div class="topics-list">
+                    <!-- Cloud Scaling (42%) -->
+                    <div class="topic-row">
+                      <div class="topic-meta">
+                        <span class="topic-name">
+                          <span class="topic-hash">#</span> Cloud Scaling
+                        </span>
+                        <span class="topic-pct" style="color: var(--color-emerald);">42%</span>
+                      </div>
+                      <div class="topic-track">
+                        <div class="topic-fill" style="width: 84%; background: linear-gradient(90deg, #10936C, var(--color-emerald)); box-shadow: 0 0 10px rgba(25,217,160,0.3);"></div>
+                      </div>
+                    </div>
+
+                    <!-- Security (21%) -->
+                    <div class="topic-row">
+                      <div class="topic-meta">
+                        <span class="topic-name">
+                          <span class="topic-hash">#</span> Security
+                        </span>
+                        <span class="topic-pct" style="color: var(--color-emerald);">21%</span>
+                      </div>
+                      <div class="topic-track">
+                        <div class="topic-fill" style="width: 42%; background: linear-gradient(90deg, #0D9488, var(--color-emerald)); box-shadow: 0 0 8px rgba(25,217,160,0.25);"></div>
+                      </div>
+                    </div>
+
+                    <!-- Analytics (18%) -->
+                    <div class="topic-row">
+                      <div class="topic-meta">
+                        <span class="topic-name">
+                          <span class="topic-hash">#</span> Analytics
+                        </span>
+                        <span class="topic-pct" style="color: var(--color-teal);">18%</span>
+                      </div>
+                      <div class="topic-track">
+                        <div class="topic-fill" style="width: 36%; background: linear-gradient(90deg, #0F766E, var(--color-teal)); box-shadow: 0 0 8px rgba(20,184,166,0.25);"></div>
+                      </div>
+                    </div>
+
+                    <!-- Automation (10%) -->
+                    <div class="topic-row">
+                      <div class="topic-meta">
+                        <span class="topic-name">
+                          <span class="topic-hash">#</span> Automation
+                        </span>
+                        <span class="topic-pct" style="color: var(--color-orange);">10%</span>
+                      </div>
+                      <div class="topic-track">
+                        <div class="topic-fill" style="width: 20%; background: linear-gradient(90deg, #B86B14, var(--color-orange)); box-shadow: 0 0 8px rgba(245,158,53,0.25);"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- X-Axis Percentage Markings & Label -->
+                  <div class="topics-axis">
+                    <div class="axis-ticks">
+                      <span>0%</span>
+                      <span>10%</span>
+                      <span>20%</span>
+                      <span>30%</span>
+                      <span>40%</span>
+                      <span>50%</span>
+                    </div>
+                    <div class="axis-label">% Engagement</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WIDGET 6: Competitor Key Metrics (~28% width, ~250px high) -->
+              <div class="widget-card widget-bottom-height">
+                <div class="widget-header">
+                  <div class="widget-title-area">
+                    <span class="widget-title">COMPETITOR KEY METRICS</span>
+                    <span class="widget-subtitle">(30-Day Velocity)</span>
+                  </div>
+                  <span style="font-size: 10px; color: var(--color-emerald); background: rgba(25,217,160,0.12); padding: 2px 7px; border-radius: 9999px; font-weight: 600;">
+                    Verified
+                  </span>
+                </div>
+
+                <div class="widget-body">
+                  <div class="metrics-stack">
+                    <!-- KPI 1: Share of Voice -->
+                    <div class="metric-box">
+                      <div class="metric-left">
+                        <span class="metric-title">Share of Voice</span>
+                        <span class="metric-sub">vs previous month</span>
+                      </div>
+                      <div class="metric-right">
+                        <span class="metric-value">42%</span>
+                        <div class="metric-growth-badge">
+                          <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                          <span>+3.8%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- KPI 2: Reach -->
+                    <div class="metric-box">
+                      <div class="metric-left">
+                        <span class="metric-title">Reach</span>
+                        <span class="metric-sub">aggregated audience</span>
+                      </div>
+                      <div class="metric-right">
+                        <span class="metric-value">2.1M</span>
+                        <div class="metric-growth-badge">
+                          <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                          <span>+14.2%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- KPI 3: Engagement -->
+                    <div class="metric-box">
+                      <div class="metric-left">
+                        <span class="metric-title">Engagement</span>
+                        <span class="metric-sub">reactions & discussions</span>
+                      </div>
+                      <div class="metric-right">
+                        <span class="metric-value">89k</span>
+                        <div class="metric-growth-badge">
+                          <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                          <span>+8.5%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Footer note -->
+                  <div class="metric-footer">
+                    <i data-lucide="zap" style="width: 13px; height: 13px; color: var(--color-emerald);"></i>
+                    <span>Outperforming industry benchmark by <b>+11.4%</b></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- View 2: Competitors Tab View -->
+        <div class="tab-content-view" id="view-competitors">
+          <div class="widget-card" style="padding: 24px;">
+            <h2 style="font-size: 18px; font-weight: 700; color: #FFF; margin-bottom: 6px;">Competitor In-Depth Intelligence</h2>
+            <p style="font-size: 12px; color: var(--color-gray); margin-bottom: 20px;">
+              Direct observability benchmark against Tier-1 APM and telemetry platforms.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+              <div class="metric-box" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px;">
+                <span style="font-size: 11px; color: var(--color-blue); font-weight: 700;">COMPETITOR A</span>
+                <span style="font-size: 18px; font-weight: 700; color: #FFF;">Datadog</span>
+                <span style="font-size: 13px; font-weight: 600; color: var(--color-blue);">28% Share of Voice</span>
+                <div style="font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 6px;">
+                  • Strength: Massive integration catalog (600+ integrations)<br/>
+                  • Weakness: Heavy custom metric pricing and sudden overages<br/>
+                  • Sentiment: 52% Positive / 26% Negative
+                </div>
+              </div>
+              <div class="metric-box" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px;">
+                <span style="font-size: 11px; color: var(--color-orange); font-weight: 700;">COMPETITOR B</span>
+                <span style="font-size: 18px; font-weight: 700; color: #FFF;">Dynatrace</span>
+                <span style="font-size: 13px; font-weight: 600; color: var(--color-orange);">18% Share of Voice</span>
+                <div style="font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 6px;">
+                  • Strength: Enterprise full-stack automated root cause analysis<br/>
+                  • Weakness: High complexity for modern cloud-native developers<br/>
+                  • Sentiment: 44% Positive / 32% Negative
+                </div>
+              </div>
+              <div class="metric-box" style="flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px; border-color: rgba(25,217,160,0.4);">
+                <span style="font-size: 11px; color: var(--color-emerald); font-weight: 700;">MARKET LEADER</span>
+                <span style="font-size: 18px; font-weight: 700; color: var(--color-emerald);">BrandVision</span>
+                <span style="font-size: 13px; font-weight: 600; color: var(--color-emerald);">42% Share of Voice</span>
+                <div style="font-size: 11.5px; color: var(--color-text-secondary); line-height: 1.5; margin-top: 6px;">
+                  • Strength: AI-native causal analysis &amp; instant competitor benchmarking<br/>
+                  • Growth: +3.8% MoM market share expansion<br/>
+                  • Sentiment: 84% Positive (Highest NPS in category)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 3: Brand Mentions Tab View -->
+        <div class="tab-content-view" id="view-mentions">
+          <div class="widget-card" style="padding: 24px;">
+            <h2 style="font-size: 18px; font-weight: 700; color: #FFF; margin-bottom: 6px;">Full Brand Mentions Stream</h2>
+            <p style="font-size: 12px; color: var(--color-gray); margin-bottom: 16px;">
+              Live ingestion across Twitter/X, Reddit, Google News, GitHub discussions, and Tech publications.
+            </p>
+            <div id="fullMentionsTable">
+              <!-- Reuses live feed logic -->
+            </div>
+          </div>
+        </div>
+
+        <!-- View 4: Alerts Tab View -->
+        <div class="tab-content-view" id="view-alerts">
+          <div class="widget-card" style="padding: 24px;">
+            <h2 style="font-size: 18px; font-weight: 700; color: #FFF; margin-bottom: 6px;">Autonomous Observability Alerts</h2>
+            <p style="font-size: 12px; color: var(--color-gray); margin-bottom: 20px;">
+              Automated triggers monitoring competitor pricing changes, negative sentiment anomalies, and viral PR mentions.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div class="metric-box" style="padding: 14px;">
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #FFF;">Competitor Negative Sentiment Surge &gt; 25%</div>
+                  <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Triggers instant Slack/PagerDuty notification when competitor negative sentiment surges.</div>
+                </div>
+                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-emerald); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+              </div>
+              <div class="metric-box" style="padding: 14px;">
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #FFF;">High Authority Mention (Domain Authority &gt; 80)</div>
+                  <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Alerts executive team when Tier-1 media (TechCrunch, Forbes, Bloomberg) publishes a mention.</div>
+                </div>
+                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-emerald); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+              </div>
+              <div class="metric-box" style="padding: 14px;">
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #FFF;">Share of Voice Milestone Crossed</div>
+                  <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Notify when BrandVision exceeds 40% threshold in monthly telemetry.</div>
+                </div>
+                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-emerald); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 5: Reports Tab View -->
+        <div class="tab-content-view" id="view-reports">
+          <div class="widget-card" style="padding: 24px;">
+            <h2 style="font-size: 18px; font-weight: 700; color: #FFF; margin-bottom: 6px;">Executive Observability Briefings</h2>
+            <p style="font-size: 12px; color: var(--color-gray); margin-bottom: 20px;">
+              Download published AI synthesis reports, board decks, and competitive intelligence audits.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+              <div class="metric-box" style="flex-direction: column; align-items: flex-start; padding: 18px; gap: 8px;">
+                <div style="font-size: 13.5px; font-weight: 700; color: #FFF;">Q3 2023 Executive Observability Briefing</div>
+                <div style="font-size: 11.5px; color: var(--color-gray);">Published Nov 01, 2023 • PDF &amp; Raw CSV • 14 Pages</div>
+                <button class="dropdown-trigger" style="margin-top: 10px; color: var(--color-emerald); border-color: rgba(25,217,160,0.3);">
+                  <i data-lucide="download" style="width: 14px; height: 14px;"></i>
+                  <span>Download Report (PDF)</span>
+                </button>
+              </div>
+              <div class="metric-box" style="flex-direction: column; align-items: flex-start; padding: 18px; gap: 8px;">
+                <div style="font-size: 13.5px; font-weight: 700; color: #FFF;">Weekly Competitor Momentum Digest</div>
+                <div style="font-size: 11.5px; color: var(--color-gray);">Published Today at 08:00 AM • Automated AI Synthesis</div>
+                <button class="dropdown-trigger" style="margin-top: 10px; color: var(--color-emerald); border-color: rgba(25,217,160,0.3);">
+                  <i data-lucide="download" style="width: 14px; height: 14px;"></i>
+                  <span>Download Digest (CSV)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Scripts: Local with fallback to CDN -->
+  <script src="libs/lucide.min.js"></script>
+  <script>
+    if (typeof lucide === 'undefined') {
+      document.write('<script src="https://unpkg.com/lucide@latest"><\/script>');
+    }
+  </script>
+
+  <script src="libs/chart.min.js"></script>
+  <script>
+    if (typeof Chart === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js"><\/script>');
+    }
+  </script>
+
+  <!-- Application Logic -->
+  <script src="script.js"></script>
 </body>
 </html>
