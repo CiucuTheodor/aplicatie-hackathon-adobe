@@ -690,6 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const navTabs = document.querySelectorAll('.nav-tab-btn');
   const tabViews = {
+    home: document.getElementById('view-home'),
     overview: document.getElementById('view-overview'),
     competitors: document.getElementById('view-competitors'),
     mentions: document.getElementById('view-mentions'),
@@ -697,41 +698,48 @@ document.addEventListener('DOMContentLoaded', () => {
     reports: document.getElementById('view-reports')
   };
 
+  function switchToTab(targetTab) {
+    state.activeTab = targetTab;
+    navTabs.forEach((b) => {
+      b.classList.toggle('active', b.getAttribute('data-tab') === targetTab);
+    });
+
+    Object.entries(tabViews).forEach(([key, viewElem]) => {
+      if (!viewElem) return;
+      viewElem.classList.toggle('active-view', key === targetTab);
+    });
+
+    // Special case: if mentions tab is clicked, also render full mentions
+    if (targetTab === 'mentions') {
+      const fullTable = document.getElementById('fullMentionsTable');
+      if (fullTable) {
+        fullTable.innerHTML = feedListElem.innerHTML;
+      }
+    }
+
+    // Resize charts if overview becomes active
+    if (targetTab === 'overview') {
+      setTimeout(() => {
+        shareOfVoiceChart?.resize();
+        detectionChart?.resize();
+        sentimentChart?.resize();
+      }, 60);
+    }
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  }
+
   navTabs.forEach((tabBtn) => {
     tabBtn.addEventListener('click', () => {
-      const targetTab = tabBtn.getAttribute('data-tab');
-      state.activeTab = targetTab;
-
-      navTabs.forEach((b) => b.classList.remove('active'));
-      tabBtn.classList.add('active');
-
-      Object.entries(tabViews).forEach(([key, viewElem]) => {
-        if (!viewElem) return;
-        if (key === targetTab) {
-          viewElem.classList.add('active-view');
-        } else {
-          viewElem.classList.remove('active-view');
-        }
-      });
-
-      // Special case: if mentions tab is clicked, also render full mentions
-      if (targetTab === 'mentions') {
-        const fullTable = document.getElementById('fullMentionsTable');
-        if (fullTable) {
-          fullTable.innerHTML = feedListElem.innerHTML;
-        }
-      }
-
-      // Resize charts if overview becomes active again
-      if (targetTab === 'overview') {
-        setTimeout(() => {
-          shareOfVoiceChart?.resize();
-          detectionChart?.resize();
-          sentimentChart?.resize();
-        }, 50);
-      }
+      switchToTab(tabBtn.getAttribute('data-tab'));
     });
   });
+
+  // Homepage CTA buttons
+  document.getElementById('heroLaunchDashboardBtn')?.addEventListener('click', () => switchToTab('overview'));
+  document.getElementById('ctaExploreBtn')?.addEventListener('click', () => switchToTab('overview'));
+  document.getElementById('heroBadgePill')?.addEventListener('click', () => switchToTab('overview'));
+  document.getElementById('heroQuickTourBtn')?.addEventListener('click', () => switchToTab('competitors'));
 
   // ==========================================================================
   // 7. Sidebar Navigation Switching

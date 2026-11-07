@@ -56,7 +56,8 @@
 
         <!-- Main Navigation Tabs -->
         <nav class="nav-tabs" id="navTabsList">
-          <button class="nav-tab-btn active" data-tab="overview">Overview</button>
+          <button class="nav-tab-btn active" data-tab="home">Home</button>
+          <button class="nav-tab-btn" data-tab="overview">Overview</button>
           <button class="nav-tab-btn" data-tab="competitors">Competitors</button>
           <button class="nav-tab-btn" data-tab="mentions">Brand Mentions</button>
           <button class="nav-tab-btn" data-tab="alerts">Alerts</button>
@@ -220,8 +221,193 @@
       <!-- Main Content Area -->
       <main class="main-content">
         
-        <!-- View 1: Overview Tab (Default Active) -->
-        <div class="tab-content-view active-view" id="view-overview">
+        <!-- View 0: Homepage (Landing & Platform Overview) -->
+        <div class="tab-content-view active-view" id="view-home">
+          <div class="homepage-container">
+            
+            <!-- Hero Section -->
+            <section class="homepage-hero">
+              <div class="hero-pill-badge" id="heroBadgePill">
+                <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+                <span>BrandVision 2.0 • AI-Native SaaS Observability</span>
+                <i data-lucide="arrow-right" style="width: 13px; height: 13px;"></i>
+              </div>
+
+              <h1 class="hero-headline">
+                The Market Moves in Seconds.<br/>
+                <span class="gradient-text">Observe Everything</span> in Liquid Glass.
+              </h1>
+
+              <p class="hero-subheadline">
+                Autonomous brand mention telemetry, real-time sentiment analysis, and continuous competitor intelligence. See shifts in perception before your competitors even notice.
+              </p>
+
+              <div class="hero-cta-group">
+                <button class="btn-primary-glass" id="heroLaunchDashboardBtn">
+                  <i data-lucide="layout-grid" style="width: 17px; height: 17px;"></i>
+                  <span>Launch Live Dashboard</span>
+                </button>
+                <button class="btn-secondary-glass" id="heroQuickTourBtn">
+                  <i data-lucide="compass" style="width: 16px; height: 16px; color: var(--color-primary);"></i>
+                  <span>Explore Competitor Intelligence</span>
+                </button>
+              </div>
+
+              <!-- Social Proof Strip -->
+              <div class="social-proof-wrap">
+                <span class="social-proof-label">Trusted by modern engineering &amp; observability teams</span>
+                <div class="social-proof-logos">
+                  <span class="partner-glass-pill">Vercel</span>
+                  <span class="partner-glass-pill">Datadog</span>
+                  <span class="partner-glass-pill">Supabase</span>
+                  <span class="partner-glass-pill">Cloudflare</span>
+                  <span class="partner-glass-pill">Linear</span>
+                  <span class="partner-glass-pill">Stripe</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Stats Counter Strip -->
+            <section class="stats-strip">
+              <div class="stat-capsule">
+                <div class="stat-number">
+                  <span>42</span><span class="stat-accent">%</span>
+                </div>
+                <span class="stat-desc">Market Share of Voice (#1 in Category)</span>
+              </div>
+              <div class="stat-capsule">
+                <div class="stat-number">
+                  <span>2.1</span><span class="stat-accent">M</span>
+                </div>
+                <span class="stat-desc">Monthly Telemetry Reach Tracked</span>
+              </div>
+              <div class="stat-capsule">
+                <div class="stat-number">
+                  <span>114</span><span class="stat-accent">ms</span>
+                </div>
+                <span class="stat-desc">P99 Stream Ingestion &amp; NLP Latency</span>
+              </div>
+              <div class="stat-capsule">
+                <div class="stat-number">
+                  <span>99.8</span><span class="stat-accent">%</span>
+                </div>
+                <span class="stat-desc">Autonomous Anomaly Precision Score</span>
+              </div>
+            </section>
+
+            <!-- Bento Grid Section -->
+            <section>
+              <h2 class="bento-section-title">Built for Real-Time SaaS Intelligence</h2>
+              <p class="bento-section-sub">
+                Designed with Apple Liquid Glass aesthetics, blending high-density telemetry with effortless usability.
+              </p>
+
+              <div class="bento-grid">
+                <!-- Bento Card 1 (Span 2): Competitor Telemetry Radar -->
+                <div class="bento-card span-2">
+                  <div class="bento-icon-box">
+                    <i data-lucide="radio" style="width: 22px; height: 22px;"></i>
+                  </div>
+                  <div>
+                    <h3 class="bento-card-title">Autonomous Competitor Telemetry Radar</h3>
+                    <p class="bento-card-desc">
+                      Continuous real-time tracking across Datadog, Dynatrace, New Relic, and community forums. Identify feature reactions and pricing shifts the instant discussions begin.
+                    </p>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-radius: 12px; background: var(--glass-card-inset); border: 1px solid var(--glass-border);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-primary); box-shadow: 0 0 8px var(--color-primary);"></span>
+                      <span style="font-size: 11.5px; font-weight: 600; color: var(--color-text-main);">BrandVision Advantage: +14.2% Growth</span>
+                    </div>
+                    <span style="font-size: 11px; color: var(--color-primary); font-weight: 700;">Live Feed Active</span>
+                  </div>
+                </div>
+
+                <!-- Bento Card 2: AI Sentiment Engine -->
+                <div class="bento-card">
+                  <div class="bento-icon-box" style="color: var(--color-secondary-blue);">
+                    <i data-lucide="smile" style="width: 22px; height: 22px;"></i>
+                  </div>
+                  <div>
+                    <h3 class="bento-card-title">Zero-Latency Sentiment Engine</h3>
+                    <p class="bento-card-desc">
+                      Deep NLP parsing classifying community tone into Positive, Negative, and Neutral sentiment vectors with 96.8% confidence.
+                    </p>
+                  </div>
+                  <div style="padding: 10px 14px; border-radius: 10px; background: var(--glass-card-inset); font-size: 11.5px; font-weight: 600; color: var(--color-primary);">
+                    84% Positive Brand Sentiment
+                  </div>
+                </div>
+
+                <!-- Bento Card 3: Anomaly & Crisis Alerts -->
+                <div class="bento-card">
+                  <div class="bento-icon-box" style="color: var(--color-orange);">
+                    <i data-lucide="bell" style="width: 22px; height: 22px;"></i>
+                  </div>
+                  <div>
+                    <h3 class="bento-card-title">Predictive Anomaly Alerts</h3>
+                    <p class="bento-card-desc">
+                      Get alerted via Slack or PagerDuty the second a competitor pricing announcement triggers a social discussion surge.
+                    </p>
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 10px; background: var(--glass-card-inset);">
+                    <span style="font-size: 11px; color: var(--color-gray);">Active Rules</span>
+                    <span style="font-size: 11px; color: var(--color-primary); font-weight: 700;">3 Enabled</span>
+                  </div>
+                </div>
+
+                <!-- Bento Card 4 (Span 2): Conversation Themes Mapping -->
+                <div class="bento-card span-2">
+                  <div class="bento-icon-box" style="color: var(--color-violet);">
+                    <i data-lucide="layers" style="width: 22px; height: 22px;"></i>
+                  </div>
+                  <div>
+                    <h3 class="bento-card-title">Topic Share &amp; Buyer Intent Mapping</h3>
+                    <p class="bento-card-desc">
+                      Understand exactly why buyers switch. Real-time engagement clustering across Cloud Scaling (42%), Enterprise Security (21%), Telemetry Analytics (18%), and Automation (10%).
+                    </p>
+                  </div>
+                  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 4px;">
+                    <div style="padding: 8px 12px; border-radius: 8px; background: var(--glass-card-inset); text-align: center;">
+                      <div style="font-size: 14px; font-weight: 700; color: var(--color-primary);">42%</div>
+                      <div style="font-size: 9.5px; color: var(--color-gray);">Cloud Scaling</div>
+                    </div>
+                    <div style="padding: 8px 12px; border-radius: 8px; background: var(--glass-card-inset); text-align: center;">
+                      <div style="font-size: 14px; font-weight: 700; color: var(--color-secondary-blue);">21%</div>
+                      <div style="font-size: 9.5px; color: var(--color-gray);">Security</div>
+                    </div>
+                    <div style="padding: 8px 12px; border-radius: 8px; background: var(--glass-card-inset); text-align: center;">
+                      <div style="font-size: 14px; font-weight: 700; color: var(--color-cyan);">18%</div>
+                      <div style="font-size: 9.5px; color: var(--color-gray);">Analytics</div>
+                    </div>
+                    <div style="padding: 8px 12px; border-radius: 8px; background: var(--glass-card-inset); text-align: center;">
+                      <div style="font-size: 14px; font-weight: 700; color: var(--color-orange);">10%</div>
+                      <div style="font-size: 9.5px; color: var(--color-gray);">Automation</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Bottom CTA Banner in Liquid Glass -->
+            <section style="text-align: center; padding: 40px 24px; border-radius: 24px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(2, 132, 199, 0.1) 100%); border: 1px solid var(--glass-border); box-shadow: var(--card-shadow), var(--specular-highlight); margin-top: 10px;">
+              <h2 style="font-size: 26px; font-weight: 800; color: var(--color-text-main); letter-spacing: -0.5px;">
+                Ready to Experience Next-Gen SaaS Observability?
+              </h2>
+              <p style="font-size: 13.5px; color: var(--color-text-secondary); max-width: 580px; margin: 8px auto 20px;">
+                Explore real-time competitor intelligence, brand detection trends, and live signal ingestion now.
+              </p>
+              <button class="btn-primary-glass" id="ctaExploreBtn" style="font-size: 14px; padding: 14px 32px;">
+                <i data-lucide="bar-chart-2" style="width: 18px; height: 18px;"></i>
+                <span>Open Full Observability Dashboard</span>
+              </button>
+            </section>
+
+          </div>
+        </div>
+
+        <!-- View 1: Overview Tab (Observability Grid) -->
+        <div class="tab-content-view" id="view-overview">
           
           <!-- Overview Header -->
           <div class="overview-header">
@@ -718,24 +904,33 @@
             <div style="display: flex; flex-direction: column; gap: 12px;">
               <div class="metric-box" style="padding: 14px;">
                 <div>
-                  <div style="font-size: 13px; font-weight: 700; color: #FFF;">Competitor Negative Sentiment Surge &gt; 25%</div>
+                  <div style="font-size: 13px; font-weight: 700; color: var(--color-text-main);">Competitor Negative Sentiment Surge &gt; 25%</div>
                   <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Triggers instant Slack/PagerDuty notification when competitor negative sentiment surges.</div>
                 </div>
-                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-primary); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+                <label class="apple-toggle" title="Toggle Alert">
+                  <input type="checkbox" checked />
+                  <span class="apple-toggle-slider"></span>
+                </label>
               </div>
               <div class="metric-box" style="padding: 14px;">
                 <div>
-                  <div style="font-size: 13px; font-weight: 700; color: #FFF;">High Authority Mention (Domain Authority &gt; 80)</div>
+                  <div style="font-size: 13px; font-weight: 700; color: var(--color-text-main);">High Authority Mention (Domain Authority &gt; 80)</div>
                   <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Alerts executive team when Tier-1 media (TechCrunch, Forbes, Bloomberg) publishes a mention.</div>
                 </div>
-                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-primary); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+                <label class="apple-toggle" title="Toggle Alert">
+                  <input type="checkbox" checked />
+                  <span class="apple-toggle-slider"></span>
+                </label>
               </div>
               <div class="metric-box" style="padding: 14px;">
                 <div>
-                  <div style="font-size: 13px; font-weight: 700; color: #FFF;">Share of Voice Milestone Crossed</div>
+                  <div style="font-size: 13px; font-weight: 700; color: var(--color-text-main);">Share of Voice Milestone Crossed</div>
                   <div style="font-size: 11px; color: var(--color-gray); margin-top: 3px;">Notify when BrandVision exceeds 40% threshold in monthly telemetry.</div>
                 </div>
-                <span style="padding: 3px 10px; background: rgba(25,217,160,0.15); color: var(--color-primary); font-weight: 700; border-radius: 9999px; font-size: 11px;">ENABLED</span>
+                <label class="apple-toggle" title="Toggle Alert">
+                  <input type="checkbox" checked />
+                  <span class="apple-toggle-slider"></span>
+                </label>
               </div>
             </div>
           </div>
