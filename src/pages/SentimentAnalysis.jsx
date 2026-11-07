@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, Tooltip, XAxis, YAxis, Line, LineChart } from "recharts";
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, Tooltip, XAxis, YAxis } from "recharts";
 import { ChevronLeft, ChevronRight, MessageSquareText, Star } from "lucide-react";
 import { getSentiment } from "../services/api.js";
 import { useFetch } from "../hooks/useFetch.js";
