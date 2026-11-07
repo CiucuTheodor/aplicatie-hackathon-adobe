@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Area, AreaChart, Cell, Line, LineChart, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { Area, AreaChart, Cell, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { ArrowDownRight, ArrowUpRight, ExternalLink, MessageSquare, Radio, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getMarketOverview, getProducts } from "../services/api.js";
